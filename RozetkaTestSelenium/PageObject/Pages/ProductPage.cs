@@ -20,8 +20,9 @@ namespace RozetkaTestSelenium.PageObject.Pages
         private WebDriverWait _wait;
         Int32 _timeout = 10000;
         public string price;
+
         [FindsBy(How = How.XPath, Using = "/html/body/app-root/div/div[1]/app-rz-product/div/product-tab-main/div[1]/div[1]/div[2]/product-main-info/div/div/div/p")]
-       [FindsBy(How = How.CssSelector, Using = "body > app-root > div > div:nth-child(2) > app-rz-product > div > product-tab-main > div:nth-child(1) > div:nth-child(1) > div.product-about__right > product-main-info > div > div > div > p")]
+        [FindsBy(How = How.CssSelector, Using = "body > app-root > div > div:nth-child(2) > app-rz-product > div > product-tab-main > div:nth-child(1) > div:nth-child(1) > div.product-about__right > product-main-info > div > div > div > p")]
         private IWebElement Price;
 
 

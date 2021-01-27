@@ -24,7 +24,8 @@ namespace RozetkaTestSelenium.PageObject.Pages
         [CacheLookup]
         private IWebElement FirstElementPrice;
 
-        [FindsBy(How = How.XPath, Using = "/html/body/app-root/div/div[1]/rz-search/rz-catalog/div/div[2]/section/rz-grid/ul/li[1]/app-goods-tile-default/div/div[2]/a[1]")]
+        [FindsBy(How = How.CssSelector, Using = "body > app-root > div > div:nth-child(2) > rz-search > rz-catalog > div > div.layout.layout_with_sidebar > section > rz-grid > ul > li:nth-child(1) > app-goods-tile-default > div > div.goods-tile__inner > a.goods-tile__heading > span")]
+        [FindsBy(How = How.XPath, Using = "/html/body/app-root/div/div[1]/rz-search/rz-catalog/div/div[2]/section/rz-grid/ul/li[1]/app-goods-tile-default/div/div[2]/a[2]/span")]
         [CacheLookup]
         private IWebElement Product;
 

@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 using RozetkaTestSelenium.PageObject.Pages;
 
@@ -12,17 +13,27 @@ namespace RozetkaTestSelenium
     {
         private IWebDriver driver;
         private WebDriverWait _wait;
+        private ChromeOptions chromeOptions;
+        private string url =
+            "https://YuraYuryk:3644197d3a884e829fedbef593e3f69e@ondemand.us-west-1.saucelabs.com:443/wd/hub";
+
 
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver(@"D:\F1\F2\IT_Step\4SD\AT\Lab4\chromedriver_win32");
+            //For Sauce Labs
+            chromeOptions = new ChromeOptions();
+            driver = new RemoteWebDriver(new Uri(url), chromeOptions);
+
+            //For localhost 
+            //driver = new ChromeDriver(@"D:\F1\F2\IT_Step\4SD\AT\Lab4\chromedriver_win32");
+
             _wait = new WebDriverWait(driver, new TimeSpan(30));
 
         }
 
         [TestCase("ideapad 310")]
-        [Repeat(20)]
+        [Repeat(3)]
         public void Test1(string product)
         {
             // 1 go to url
@@ -37,7 +48,8 @@ namespace RozetkaTestSelenium
             var fmainPage = new FluentMainPage(driver)
                 .fgoToPage()
                 .fchangeLanguage()
-                .fsearchProduct(product);
+                .fsearchProduct(product)
+                .floadComplete();
             var productsPage =new ProductsPage(fmainPage.driver);
             productsPage.load_complete();
             productsPage.savePrice();

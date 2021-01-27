@@ -83,7 +83,8 @@ namespace RozetkaTestSelenium.PageObject.Pages
 
 
     };
-
+    //Practice 15
+    //My Little Wrapper
     class FluentMainPage : MainPage
     {
         public FluentMainPage(IWebDriver driver) : base(driver)
